@@ -1,7 +1,8 @@
-<template>
+<template lang="html">
 	<main>
 		<h1>Edi Cycle Data</h1>
 		<station-list :stations="stationsApiObject"></station-list>
+		<station-detail :station="selectedStation"></station-detail>
 	</main>
 </template>
 
@@ -12,6 +13,7 @@ import StationDetail from './components/StationDetail';
 
 export default {
 	name: 'app',
+
 	data() {
 		return {
 			stationsApiObject: [],
@@ -19,10 +21,16 @@ export default {
 			selectedStation: null
 		};
 	},
+
 	mounted() {
 		this.fetchStationInfo();
 		this.fetchStationStatus();
+
+		eventBus.$on('station-selected', (station) => {
+			this.selectedStation = station;
+		});
 	},
+
 	methods: {
 		fetchStationInfo: function() {
 			fetch(
@@ -39,6 +47,7 @@ export default {
 					);
 				});
 		},
+
 		fetchStationStatus: function() {
 			fetch(
 				'https://gbfs.urbansharing.com/edinburghcyclehire.com/station_status.json'
@@ -49,9 +58,11 @@ export default {
 				);
 		}
 	},
+
 	computed: {},
 	components: {
-		'station-list': StationList
+		'station-list': StationList,
+		'station-detail': StationDetail
 	}
 };
 </script>

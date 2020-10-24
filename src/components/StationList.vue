@@ -1,17 +1,24 @@
-<template>
+<template lang="html">
 	<section>
 		<ul>
-			<li v-for="(station, index) in stations" :key="index">
-				{{ station.name }}
-			</li>
+			<station-select
+				v-for="(station, index) in stations"
+				:key="index"
+				:station="station"
+			></station-select>
 		</ul>
 	</section>
 </template>
 
 <script>
+import StationSelect from './StationSelect';
+
 export default {
 	name: 'station-list',
-	props: ['stations']
+	props: ['stations'],
+	components: {
+		'station-select': StationSelect
+	}
 };
 </script>
 
