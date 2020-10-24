@@ -1,18 +1,22 @@
 <template>
 	<main>
 		<h1>Edi Cycle Data</h1>
+		<station-list :stations="stationsApiObject"></station-list>
 	</main>
 </template>
 
 <script>
 import { eventBus } from './main.js';
+import StationList from './components/StationList';
+import StationDetail from './components/StationDetail';
 
 export default {
 	name: 'app',
 	data() {
 		return {
 			stationsApiObject: [],
-			statusApiObject: []
+			statusApiObject: [],
+			selectedStation: null
 		};
 	},
 	mounted() {
@@ -28,7 +32,12 @@ export default {
 				.then(
 					(apiData) =>
 						(this.stationsApiObject = apiData.data.stations)
-				);
+				)
+				.then(() => {
+					this.stationsApiObject.sort((station1, station2) =>
+						station1.name > station2.name ? 1 : -1
+					);
+				});
 		},
 		fetchStationStatus: function() {
 			fetch(
@@ -39,6 +48,10 @@ export default {
 					(apiData) => (this.statusApiObject = apiData.data.stations)
 				);
 		}
+	},
+	computed: {},
+	components: {
+		'station-list': StationList
 	}
 };
 </script>
