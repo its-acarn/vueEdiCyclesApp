@@ -18,6 +18,9 @@ export default {
 	props: ['stations'],
 	components: {
 		'station-select': StationSelect
+	},
+	computed: {
+		filteredStations: function() {}
 	}
 };
 </script>

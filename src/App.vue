@@ -1,14 +1,11 @@
 <template lang="html">
 	<main>
-		<h1 v-on:click="combineStationData">Edi Cycle Data</h1>
-		<station-detail
+		<h1>Edi Cycle Data</h1>
+		<station-search
+			:stations="stationsApiObject"
 			:station="selectedStation"
 			:statusApiObject="statusApiObject"
-		></station-detail>
-		<station-list
-			:stations="stationsApiObject"
-			v-if="combineStationData"
-		></station-list>
+		></station-search>
 	</main>
 </template>
 
@@ -16,6 +13,7 @@
 import { eventBus } from './main.js';
 import StationList from './components/StationList';
 import StationDetail from './components/StationDetail';
+import StationSearch from './components/StationSearch';
 
 export default {
 	name: 'app',
@@ -24,7 +22,6 @@ export default {
 		return {
 			stationsApiObject: [],
 			statusApiObject: [],
-			combinedApiData: [],
 			selectedStation: null
 		};
 	},
@@ -32,7 +29,6 @@ export default {
 	mounted() {
 		this.fetchStationInfo();
 		this.fetchStationStatus();
-		this.combineStationData();
 
 		eventBus.$on('station-selected', (station) => {
 			this.selectedStation = station;
@@ -64,36 +60,12 @@ export default {
 				.then(
 					(apiData) => (this.statusApiObject = apiData.data.stations)
 				);
-		},
-		combineStationData: async function() {
-			await this.fetchStationInfo();
-			await this.fetchStationStatus();
-
-			const stations = this.stationsApiObject;
-			const statusList = this.statusApiObject;
-			console.log('OK');
-
-			for (let i = 0; i < stations.length; i++) {
-				let obj;
-				let station = stations[i];
-				console.log(station);
-
-				for (let j = 0; j < statusList.length; j++) {
-					let status = statusList[j];
-
-					if (station.station_id === status.station_id) {
-						obj = { ...station, ...status };
-						this.combinedApiData.push(obj);
-					}
-				}
-			}
 		}
 	},
 
 	computed: {},
 	components: {
-		'station-list': StationList,
-		'station-detail': StationDetail
+		'station-search': StationSearch
 	}
 };
 </script>
