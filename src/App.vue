@@ -1,7 +1,10 @@
 <template lang="html">
 	<main>
 		<h1 v-on:click="combineStationData">Edi Cycle Data</h1>
-		<station-detail :station="selectedStation"></station-detail>
+		<station-detail
+			:station="selectedStation"
+			:statusApiObject="statusApiObject"
+		></station-detail>
 		<station-list
 			:stations="stationsApiObject"
 			v-if="combineStationData"
