@@ -1,12 +1,12 @@
 <template lang="html">
-	<section>
-		<ul class="stationList">
+	<section class="list-wrapper">
+		<div class="stationList">
 			<station-select
 				v-for="(station, index) in stations"
 				:key="index"
 				:station="station"
 			></station-select>
-		</ul>
+		</div>
 	</section>
 </template>
 
@@ -28,6 +28,7 @@ export default {
 <style lang="css" scoped>
 .stationList {
 	list-style-type: none;
-	padding: 0;
+	/* padding: 0; */
+	text-align: center;
 }
 </style>

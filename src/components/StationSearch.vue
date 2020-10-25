@@ -43,4 +43,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.search-wrapper {
+	display: flex;
+	justify-content: center;
+}
+.search-wrapper input {
+	font-family: inherit;
+	width: 80%;
+	border: 0;
+	border-bottom: 2px solid red;
+	outline: 0;
+	font-size: 1.1rem;
+	color: red;
+	padding: 7px 0;
+	background: transparent;
+}
+</style>
