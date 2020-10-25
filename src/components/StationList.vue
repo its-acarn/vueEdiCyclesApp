@@ -1,6 +1,6 @@
 <template lang="html">
 	<section>
-		<ul>
+		<ul class="stationList">
 			<station-select
 				v-for="(station, index) in stations"
 				:key="index"
@@ -22,4 +22,9 @@ export default {
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.stationList {
+	list-style-type: none;
+	padding: 0;
+}
+</style>

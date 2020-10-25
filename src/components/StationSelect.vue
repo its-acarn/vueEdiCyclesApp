@@ -1,5 +1,7 @@
 <template lang="html">
-	<li v-on:click="clickStation">{{ station.name }}</li>
+	<li v-on:click="clickStation" class="stationListItem">
+		{{ station.name }}
+	</li>
 </template>
 
 <script>
@@ -18,4 +20,12 @@ export default {
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+li {
+	margin: auto;
+	border: 2px black solid;
+	width: 200px;
+	height: 200px;
+	margin-bottom: 5px;
+}
+</style>
