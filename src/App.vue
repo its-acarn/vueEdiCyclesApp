@@ -1,6 +1,5 @@
 <template lang="html">
 	<main>
-		<h1>Edi Cycle Data</h1>
 		<station-search
 			:stations="stationsApiObject"
 			:station="selectedStation"

@@ -27,8 +27,9 @@ export default {
 
 <style lang="css" scoped>
 .stationList {
-	list-style-type: none;
-	/* padding: 0; */
-	text-align: center;
+	display: flex;
+	flex-flow: row wrap;
+	width: 75vw;
+	margin: auto;
 }
 </style>

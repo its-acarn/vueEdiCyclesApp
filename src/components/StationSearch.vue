@@ -3,15 +3,11 @@
 		<div class="search-wrapper">
 			<input type="text" v-model="search" placeholder="Search stop..." />
 		</div>
-		<div>
-			<station-detail
-				:station="station"
-				:statusApiObject="statusApiObject"
-			></station-detail>
-		</div>
-		<div>
-			<station-list :stations="filteredList"></station-list>
-		</div>
+		<station-detail
+			:station="station"
+			:statusApiObject="statusApiObject"
+		></station-detail>
+		<station-list :stations="filteredList"></station-list>
 	</section>
 </template>
 
@@ -51,12 +47,14 @@ export default {
 .search-wrapper input {
 	font-family: inherit;
 	width: 80%;
+	max-width: 400px;
 	border: 0;
-	border-bottom: 2px solid red;
+	border-bottom: 2px solid lightseagreen;
 	outline: 0;
-	font-size: 1.1rem;
-	color: red;
+	font-size: 1.2rem;
+	color: lightseagreen;
 	padding: 7px 0;
 	background: transparent;
+	margin: 15px 0 30px 0;
 }
 </style>
