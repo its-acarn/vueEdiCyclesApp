@@ -5,6 +5,7 @@
 			:station="selectedStation"
 			:statusApiObject="statusApiObject"
 		></station-search>
+		
 	</main>
 </template>
 
