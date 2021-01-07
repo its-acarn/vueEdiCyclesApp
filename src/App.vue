@@ -5,7 +5,7 @@
 			:station="selectedStation"
 			:statusApiObject="statusApiObject"
 		></station-search>
-		
+		<base-map></base-map>
 	</main>
 </template>
 
@@ -14,6 +14,7 @@ import { eventBus } from './main.js';
 import StationList from './components/StationList';
 import StationDetail from './components/StationDetail';
 import StationSearch from './components/StationSearch';
+import BaseMap from './components/BaseMap';
 
 export default {
 	name: 'app',
@@ -65,7 +66,8 @@ export default {
 
 	computed: {},
 	components: {
-		'station-search': StationSearch
+		'station-search': StationSearch,
+		'base-map': BaseMap
 	}
 };
 </script>
