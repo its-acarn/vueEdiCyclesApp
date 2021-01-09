@@ -49,10 +49,10 @@ export default {
 	width: 80%;
 	max-width: 400px;
 	border: 0;
-	border-bottom: 2px solid lightseagreen;
+	border-bottom: 2px solid red;
 	outline: 0;
 	font-size: 1.2rem;
-	color: lightseagreen;
+	color: red;
 	padding: 7px 0;
 	background: transparent;
 	margin: 15px 0 30px 0;

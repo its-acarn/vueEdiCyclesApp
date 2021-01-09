@@ -3,7 +3,7 @@ body {
 }
 
 header {
-	background: lightseagreen;
+	background: red;
 }
 
 h1 {
@@ -11,6 +11,7 @@ h1 {
 	text-align: center;
 	padding: 3vh;
 	margin: 0;
-	font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+		'Helvetica Neue', sans-serif;
 	font-size: 4vh;
 }
